@@ -1,1 +1,14 @@
-<p>home works!</p>
+<!-- <h1>Welcome to Movie/Book/TV Show Review App</h1>
+<nav>
+    <a routerLink="/movies" routerLinkActive="active">Movies</a>
+    <a routerLink="/books" routerLinkActive="active">Books</a>
+    <a routerLink="/tvshows" routerLinkActive="active">TV Shows</a>
+  </nav> -->
+  
+  <h1>Welcome to Movie/Book/TV Show Review App</h1>
+<nav>
+  <button (click)="navigateToMovies()">Movies</button>
+  <button (click)="router.navigate(['/books'])">Books</button>
+  <button (click)="router.navigate(['/tvshows'])">TV Shows</button>
+</nav>
+
