@@ -2,31 +2,44 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "declaration": false,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "useDefineForClassFields": false,
+    "outDir": "./dist/out-tsc",          // Directory to output compiled files
+    "strict": true,                      // Enable all strict type checking options
+    "noImplicitOverride": true,          // Ensure overriding methods are explicitly marked
+    "noPropertyAccessFromIndexSignature": true,  // Prevents accessing properties not listed in index signatures
+    "noImplicitReturns": true,           // Ensure functions always return a value
+    "noFallthroughCasesInSwitch": true,  // Prevent fallthrough in switch statements
+    "skipLibCheck": true,                // Skip type checking of all declaration files (improves build time)
+    "esModuleInterop": true,             // Enable ES module interoperability
+    "sourceMap": true,                   // Generate source maps for debugging
+    "declaration": false,                // Do not generate `.d.ts` declaration files
+    "experimentalDecorators": true,      // Enable experimental support for decorators
+    "moduleResolution": "node",          // Use Node.js style module resolution
+    "importHelpers": true,               // Use `tslib` to optimize emitted JavaScript code
+    "target": "ES2022",                  // Specify ECMAScript target version
+    "module": "ES2022",                  // Specify module code generation
+    "useDefineForClassFields": false,    // Disable using `define` for class fields (aligns with ES6 spec)
     "lib": [
-      "ES2022",
-      "dom"
-    ]
+      "ES2022",                          // Include ES2022 library
+      "dom"                              // Include DOM library for browser-specific APIs
+    ],
+    "baseUrl": "./",                     // Base directory for resolving non-relative module names
+    "paths": {                           // Path mappings for simplifying imports
+      "@app/*": ["src/app/*"]
+    }
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  }
+    "enableI18nLegacyMessageIdFormat": false,  // Disable legacy message ID format for i18n
+    "strictInjectionParameters": true,         // Ensure DI parameters are strictly typed
+    "strictInputAccessModifiers": true,        // Ensure strict typing for @Input properties
+    "strictTemplates": true                    // Enable strict type checking in Angular templates
+  },
+  "include": [
+    "src/**/*.ts"                              // Specify files to include in the project
+  ],
+  "exclude": [
+    "node_modules",                            // Exclude node_modules directory
+    "dist",                                    // Exclude build output directory
+    "e2e"                                      // Exclude end-to-end test directory
+  ]
 }
+
