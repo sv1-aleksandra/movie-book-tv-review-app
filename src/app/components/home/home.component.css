@@ -1,14 +1,25 @@
-nav {
-    margin-top: 20px;
+.jumbotron {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
   }
   
-  nav a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #007bff;
+  .jumbotron h1 {
+    font-family: 'Roboto', sans-serif;
+    color: #8b4513; /* Dark brown */
   }
   
-  nav a:hover {
-    text-decoration: underline;
+  .jumbotron p {
+    color: #a0522d; /* Sienna */
   }
+  
+  .btn-primary {
+    background-color: #8b4513; /* Dark brown */
+    border-color: #8b4513;
+  }
+  
+  .btn-primary:hover {
+    background-color: #a0522d; /* Sienna */
+    border-color: #a0522d;
+  }
+  
   

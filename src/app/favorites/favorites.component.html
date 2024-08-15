@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Your Favorite TV Shows</h1>
+    <ul *ngIf="favorites.length">
+        <li *ngFor="let tvshow of favorites">
+            <h2>{{ tvshow.name }}</h2>
+            <p>{{ tvshow.overview }}</p>
+        </li>
+    </ul>
+    <p *ngIf="!favorites.length">No favorite TV shows yet.</p>
+</div>
+

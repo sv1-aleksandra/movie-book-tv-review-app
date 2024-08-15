@@ -1,15 +1,20 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';  // Import provideHttpClient
+import { provideHttpClient, withFetch } from '@angular/common/http';  // Import withFetch for fetch support
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
-import { provideAnimations } from '@angular/platform-browser/animations'; // Updated to provideAnimations
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),         // Set up routing
-    provideClientHydration(),      // Handle client hydration (SSR support)
-    provideHttpClient(),           // Enable HTTP client functionality
-    provideAnimations()            // Enable animations support
+  provideRouter(routes),
+    provideClientHydration(),
+    provideHttpClient(withFetch()),  // Enable fetch API with HttpClient
+    provideAnimationsAsync(), provideAnimationsAsync(),
   ]
 };
+
+
+
+
+

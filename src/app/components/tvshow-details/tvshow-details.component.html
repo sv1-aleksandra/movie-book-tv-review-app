@@ -1,0 +1,17 @@
+<h2>{{ tvshow?.name }}</h2>
+
+<p *ngIf="tvshow?.genres?.length">
+  <strong>Genres:</strong>
+  <span *ngFor="let genre of tvshow.genres">
+    {{ genre.name }}<span *ngIf="genre !== tvshow.genres[tvshow.genres.length - 1]">, </span>
+  </span>
+</p>
+
+<p *ngIf="tvshow?.first_air_date"><strong>First Aired:</strong> {{ tvshow.first_air_date }}</p>
+    <p *ngIf="tvshow?.overview">{{ tvshow.overview }}</p>
+
+
+
+
+  
+  

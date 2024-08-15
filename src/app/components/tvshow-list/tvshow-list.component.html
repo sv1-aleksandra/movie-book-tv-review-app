@@ -1,2 +1,17 @@
-<h2>TV Shows</h2>
-<!-- TV Show list will go here -->
+<div class="container">
+    <h1>TV Shows</h1>
+    <input type="text" [(ngModel)]="query" placeholder="Enter TV Show Name" />
+    <button (click)="searchTvShows()">Search</button>
+
+    <ul *ngIf="tvshows.length">
+        <li *ngFor="let tvshow of tvshows">
+            <h2>{{ tvshow.name }}</h2>
+            <p>{{ tvshow.overview }}</p>
+            <button (click)="addToFavorites(tvshow.id)">Add to Favorites</button>
+        </li>
+    </ul>
+
+    <p *ngIf="!tvshows.length">No TV Shows found.</p>
+</div>
+
+
