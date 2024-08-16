@@ -1,9 +1,9 @@
 <div class="container">
     <h1>TV Shows</h1>
-    <input type="text" [(ngModel)]="query" placeholder="Enter TV Show Name" />
-    <button (click)="searchTvShows()">Search</button>
+    <input type="text" #queryInput placeholder="Enter TV Show Name" />
+    <button (click)="searchTvShows(queryInput.value)">Search</button>
 
-    <ul *ngIf="tvshows.length">
+    <ul *ngIf="tvshows.length > 0">
         <li *ngFor="let tvshow of tvshows">
             <h2>{{ tvshow.name }}</h2>
             <p>{{ tvshow.overview }}</p>
@@ -11,7 +11,7 @@
         </li>
     </ul>
 
-    <p *ngIf="!tvshows.length">No TV Shows found.</p>
+    <p *ngIf="tvshows.length === 0">No TV Shows found.</p>
 </div>
 
 

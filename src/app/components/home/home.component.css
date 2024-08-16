@@ -1,25 +1,32 @@
 .jumbotron {
-    background-color: #f8f9fa;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .jumbotron h1 {
-    font-family: 'Roboto', sans-serif;
-    color: #8b4513; /* Dark brown */
-  }
-  
-  .jumbotron p {
-    color: #a0522d; /* Sienna */
-  }
-  
-  .btn-primary {
-    background-color: #8b4513; /* Dark brown */
-    border-color: #8b4513;
-  }
-  
-  .btn-primary:hover {
-    background-color: #a0522d; /* Sienna */
-    border-color: #a0522d;
-  }
+  background-color: #f5f5dc; /* Light beige background */
+  color: #3e2723; /* Dark brown text */
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.display-4 {
+  color: #8b4513; /* Dark brown */
+  font-weight: 500;
+}
+
+.lead {
+  color: #5d4037; /* Medium brown */
+}
+
+.btn-primary {
+  background-color: #8b4513; /* Dark brown */
+  border-color: #8b4513;
+}
+
+.btn-primary:hover {
+  background-color: #a0522d; /* Sienna */
+  border-color: #a0522d;
+}
+
+hr {
+  border-color: #a0522d; /* Sienna */
+}
+
   
   

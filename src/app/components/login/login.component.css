@@ -1,24 +1,25 @@
 .card {
-    border: 1px solid #e0e0e0;
-  }
-  
-  .card-title {
-    color: #8b4513; /* Dark brown */
-    margin-bottom: 20px;
-  }
-  
-  .form-label {
-    color: #a0522d; /* Sienna */
-  }
-  
-  .btn-primary {
-    background-color: #8b4513; /* Dark brown */
-    border-color: #8b4513;
-  }
-  
-  .btn-primary:hover {
-    background-color: #a0522d; /* Sienna */
-    border-color: #a0522d;
-  }
+  border: 1px solid #e0e0e0;
+}
+
+.card-title {
+  color: #8b4513; /* Dark brown */
+  margin-bottom: 20px;
+}
+
+.form-label {
+  color: #a0522d; /* Sienna */
+}
+
+.btn-primary {
+  background-color: #8b4513; /* Dark brown */
+  border-color: #8b4513;
+}
+
+.btn-primary:hover {
+  background-color: #a0522d; /* Sienna */
+  border-color: #a0522d;
+}
+
   
   

@@ -19,7 +19,7 @@ export class AuthService {
     this.isBrowser = isPlatformBrowser(this.platformId);
     
     // Now that isBrowser is initialized, we can safely set the baseUrl
-    this.baseUrl = this.isBrowser ? '' : 'http://localhost:4000'; // Adjust the base URL for SSR
+    this.baseUrl = this.isBrowser ? '' : 'http://localhost:4000'; // 
 
     const initialToken = this.isBrowser ? localStorage.getItem('token') : null;
     this.tokenSubject = new BehaviorSubject<string | null>(initialToken);

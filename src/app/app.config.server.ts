@@ -4,8 +4,9 @@ import { appConfig } from './app.config';
 
 const serverConfig: ApplicationConfig = {
   providers: [
-    provideServerRendering()
+    provideServerRendering() // Provides server-side rendering capabilities
   ]
 };
 
 export const config = mergeApplicationConfig(appConfig, serverConfig);
+
