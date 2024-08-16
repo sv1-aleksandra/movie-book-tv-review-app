@@ -17,20 +17,16 @@ export class AuthService {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
-    
-    // Now that isBrowser is initialized, we can safely set the baseUrl
-    this.baseUrl = this.isBrowser ? '' : 'http://localhost:4000'; // 
+    this.baseUrl = this.isBrowser ? '' : 'http://localhost:4000';
 
     const initialToken = this.isBrowser ? localStorage.getItem('token') : null;
     this.tokenSubject = new BehaviorSubject<string | null>(initialToken);
   }
 
-  // Register user
   register(username: string, email: string, password: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/api/users/register`, { username, email, password });
   }
 
-  // Login user
   login(email: string, password: string): Observable<any> {
     return this.http.post<{ token: string }>(`${this.baseUrl}/api/users/login`, { email, password })
       .pipe(tap(response => {
@@ -38,38 +34,32 @@ export class AuthService {
       }));
   }
 
-  // Get user profile
   getProfile(): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/users/profile`, {
       headers: { Authorization: `Bearer ${this.tokenSubject.value}` }
     });
   }
 
-  // Logout user
   logout(): void {
     this.setToken(null);
   }
 
-  // Check if user is authenticated
   isAuthenticated(): boolean {
     return !!this.tokenSubject.value;
   }
 
-  // Add TV show to favorites
   addToFavorites(tvShowId: string): Observable<any> {
     return this.http.post(`${this.baseUrl}/api/users/favorites`, { tvShowId }, {
       headers: { Authorization: `Bearer ${this.tokenSubject.value}` }
     });
   }
 
-  // Get user's favorite TV shows
   getFavorites(): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/users/favorites`, {
       headers: { Authorization: `Bearer ${this.tokenSubject.value}` }
     });
   }
 
-  // Private method to set token in both BehaviorSubject and localStorage
   private setToken(token: string | null): void {
     this.tokenSubject.next(token);
     if (this.isBrowser) {
@@ -81,6 +71,7 @@ export class AuthService {
     }
   }
 }
+
 
 
 
