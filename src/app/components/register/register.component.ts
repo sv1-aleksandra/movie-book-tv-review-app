@@ -20,19 +20,23 @@ export class RegisterComponent {
 
   onSubmit() {
     // Use AuthService to register the user
-    this.authService.register(this.username, this.email, this.password).subscribe(
-      response => {
+    this.authService.register(this.username, this.email, this.password).subscribe({
+      next: (response) => {
         console.log('Registration successful:', response);
         // Navigate to the login page or another page after successful registration
         this.router.navigate(['/login']);
       },
-      error => {
+      error: (error) => {
         console.error('Registration failed:', error);
         alert('Registration failed. Please try again.');
+      },
+      complete: () => {
+        console.log('Registration request completed');
       }
-    );
+    });
   }
 }
+
 
 
 

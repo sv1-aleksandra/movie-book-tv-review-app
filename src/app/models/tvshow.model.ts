@@ -1,10 +1,12 @@
 export interface TvShow {
-    id: string;
-    name: string;
-    overview: string;
-    genres: { id: number; name: string }[];
-    first_air_date: string;
-    poster_path: string;
-  }
+  _id?: string;  // Assuming your TV shows have MongoDB IDs
+  name: string;
+  genre: string;
+  rating: number;
+  firstAirDate: Date;
+  overview: string;
+  userId: string;
+  imageUrl?: string; // Add this property for the image URL
+}
   
   

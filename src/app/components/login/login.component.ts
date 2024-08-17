@@ -19,19 +19,23 @@ export class LoginComponent {
 
   onSubmit() {
     // Use AuthService to log in the user
-    this.authService.login(this.email, this.password).subscribe(
-      response => {
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response) => {
         console.log('Login successful:', response);
         // Navigate to the home page or dashboard after successful login
         this.router.navigate(['/']);
       },
-      error => {
+      error: (error) => {
         console.error('Login failed:', error);
         alert('Login failed. Please check your credentials and try again.');
+      },
+      complete: () => {
+        console.log('Login request completed');
       }
-    );
+    });
   }
 }
+
 
 
 
