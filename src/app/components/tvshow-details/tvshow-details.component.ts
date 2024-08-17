@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';  // Import CommonModule
+import { TmdbService } from 'src/app/services/tmdb.service';
 import { ActivatedRoute } from '@angular/router';
-import { TmdbService } from '../../services/tmdb.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-tvshow-details',
-  standalone: true,
-  imports: [CommonModule],
+  standalone: true,  // Standalone component
+  imports: [CommonModule],  // Import CommonModule for date pipe and other common functionalities
   templateUrl: './tvshow-details.component.html',
   styleUrls: ['./tvshow-details.component.css']
 })
-export class TvShowDetailsComponent implements OnInit {
+export class TvShowDetailsComponent {
   tvshow: any;
-  genres: string = '';  // Add a property to hold the formatted genres
+  genresList: string = '';  // Define genresList property
 
   constructor(
     private route: ActivatedRoute,
@@ -20,18 +20,12 @@ export class TvShowDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    this.tmdbService.getTvShowById(id).subscribe((data) => {
-      this.tvshow = data;
-      this.genres = this.formatGenres(this.tvshow.genres);
-    });
-  }
-
-  // Method to format the genres
-  formatGenres(genres: { id: number; name: string }[]): string {
-    return genres.map(g => g.name).join(', ');
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.tmdbService.getTvShowById(+id).subscribe((data) => {
+        this.tvshow = data;
+        this.genresList = this.tvshow.genres.map((genre: any) => genre.name).join(', '); // Generate the genresList string
+      });
+    }
   }
 }
-
-
-

@@ -1,0 +1,87 @@
+/* tvshow-list.component.css */
+
+/* Container for the whole page content */
+.content-container {
+    max-width: 1200px; /* Adjust this value to control the maximum width */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding to give some space around the content */
+  }
+  
+  /* Existing styles */
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    width: 300px;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: brown;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .search-bar button:hover {
+    background-color: #d4a017;
+  }
+  
+  .tvshow-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .tvshow-item img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 15px;
+  }
+  
+  .tvshow-item .tvshow-details h3 a {
+    font-weight: bold;
+    color: #6f4e37;
+    text-decoration: none;
+  }
+  
+  .tvshow-item .tvshow-details h3 a:hover {
+    color: #8a2be2;
+  }
+  
+  .recommendations-container {
+    margin: 40px 0;
+  }
+  
+  .recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .recommendations-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .tvshow-details {
+    text-align: left;
+  }

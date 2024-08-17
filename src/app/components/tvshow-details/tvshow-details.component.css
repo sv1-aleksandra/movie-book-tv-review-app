@@ -1,0 +1,103 @@
+/* tvshow-details.component.css */
+
+.tvshow-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #e9ecef; /* Light gray background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tvshow-header {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .tvshow-poster {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+  }
+  
+  .tvshow-header-info {
+    flex: 1;
+  }
+  
+  .tvshow-header-info h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #343a40; /* Dark gray for text */
+  }
+  
+  .tvshow-header-info p {
+    font-size: 1.1em;
+    color: #6c757d; /* Medium gray for subtitles */
+    margin-bottom: 5px;
+  }
+  
+  .tvshow-genres,
+  .tvshow-release-date,
+  .tvshow-rating {
+    margin-top: 5px;
+  }
+  
+  .tvshow-overview {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .tvshow-overview h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #343a40;
+  }
+  
+  .tvshow-overview p {
+    font-size: 1.1em;
+    color: #495057; /* Slightly darker gray for body text */
+    line-height: 1.6;
+  }
+  
+  .tvshow-additional-info {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .tvshow-additional-info h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #343a40;
+  }
+  
+  .tvshow-additional-info p {
+    font-size: 1.1em;
+    color: #495057;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .tvshow-header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .tvshow-poster {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+  
+    .tvshow-header-info h1 {
+      font-size: 2em;
+      text-align: center;
+    }
+  
+    .tvshow-header-info p {
+      text-align: center;
+    }
+  }

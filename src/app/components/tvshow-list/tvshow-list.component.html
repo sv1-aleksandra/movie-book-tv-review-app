@@ -1,25 +1,54 @@
-<div>
-    <input
-      type="text"
-      placeholder="Search TV shows..."
-      [(ngModel)]="searchQuery"
-      (keyup.enter)="searchTvShows()"
-    />
-    <button (click)="searchTvShows()">Search</button>
-  </div>
-  
-  <div *ngIf="tvshows.length > 0">
-    <div *ngFor="let tvshow of tvshows" class="tvshow-item">
-      <img
-        *ngIf="tvshow.poster_path"
-        [src]="'https://image.tmdb.org/t/p/w500' + tvshow.poster_path"
-        alt="{{ tvshow.name }}"
-      />
-      <div>
-        <h3>{{ tvshow.name }}</h3>
-        <p>{{ tvshow.overview }}</p>
-        <button (click)="addToFavorites(tvshow.id)">Add to Favorites</button>
-      </div>
+<div class="content-container">
+    <div class="search-container">
+        <div class="search-bar">
+            <input
+                type="text"
+                placeholder="Search TV shows..."
+                [(ngModel)]="searchQuery"
+                (keyup.enter)="searchTvShows()"
+            />
+            <button (click)="searchTvShows()">Search</button>
+        </div>
     </div>
-  </div>
 
+    <!-- Display TV show recommendations -->
+    <div class="recommendations-container">
+        <h2>Recommended TV Shows</h2>
+        <div class="recommendations-grid">
+            <div *ngFor="let tvshow of recommendations" class="tvshow-item">
+                <img
+                    *ngIf="tvshow.poster_path"
+                    [src]="'https://image.tmdb.org/t/p/w500' + tvshow.poster_path"
+                    alt="{{ tvshow.name }}"
+                />
+                <div class="tvshow-details">
+                    <h3>
+                        <a [routerLink]="['/tvshows', tvshow.id]">
+                            {{ tvshow.name }} ({{ tvshow.first_air_date | date:'yyyy' }})
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Display search results -->
+    <div *ngIf="tvshows.length > 0" class="search-results">
+        <div *ngFor="let tvshow of tvshows" class="tvshow-item">
+            <img
+                *ngIf="tvshow.poster_path"
+                [src]="'https://image.tmdb.org/t/p/w500' + tvshow.poster_path"
+                alt="{{ tvshow.name }}"
+            />
+            <div class="tvshow-details">
+                <h3>
+                    <a [routerLink]="['/tvshows', tvshow.id]">
+                        {{ tvshow.name }} ({{ tvshow.first_air_date | date:'yyyy' }})
+                    </a>
+                </h3>
+                <p>{{ tvshow.overview }}</p>
+                <button (click)="addToFavorites(tvshow.id)">Add to Favorites</button>
+            </div>
+        </div>
+    </div>
+</div>

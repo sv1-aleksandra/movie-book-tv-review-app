@@ -1,3 +1,5 @@
+// src/app/services/tmdb.service.ts
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -22,6 +24,13 @@ export class TmdbService {
   getTvShowById(id: number): Observable<any> {
     return this.http.get<any>(
       `${this.apiUrl}/tv/${id}?api_key=${this.apiKey}`
+    );
+  }
+
+  // Fetch popular TV shows for recommendations
+  getPopularTvShows(): Observable<any> {
+    return this.http.get<any>(
+      `${this.apiUrl}/tv/popular?api_key=${this.apiKey}`
     );
   }
 }
